@@ -46,7 +46,8 @@ function drawQuote(arr) {
     let quote = document.createElement('p')
     quote.innerHTML = arr[1];
     newLegend.append(id, quote);
-    outputElement.appendChild(newLegend);
+    // outputElement.appendChild(newLegend);
+    outputElement.innerHTML = newLegend.innerHTML;
 }
 
 
