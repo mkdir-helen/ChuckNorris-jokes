@@ -8,7 +8,7 @@ const nextButton = document.querySelector('[ data-right]');
 let cachedJoke = 'Why did Chuck Norris cross the road? THe road knew better than to cross him.';
 let jokePromise;
 let jokeArray = [];
-let index = -1;
+let index = -1; //index keeps track of the items in the array
 
 // function that gets a programming quote
 function getQuote() {
@@ -20,10 +20,13 @@ function getQuote() {
         .then(drawQuote)
 }
 
+//Save joke when internet is cut off
 function cacheJoke(jokeObj){
     if(jokeObj.value.joke){
+        //Also store jokes in an array
         let individualJokes = [jokeObj.value.id, jokeObj.value.joke];
         jokeArray.push(individualJokes);
+        //increase index to show how much is in the array
         index++;
         localStorage.setItem('joke', JSON.stringify(jokeObj.value.joke));
         
@@ -60,6 +63,7 @@ function getPrev(){
 
 }
 
+//function next
 function getNext(){
     if(index < jokeArray.length-1){
         drawQuote(jokeArray[index+1]);
